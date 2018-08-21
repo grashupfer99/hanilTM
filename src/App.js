@@ -20,18 +20,30 @@ import { Login, Page404, Page500, Register } from './views/Pages';
 
 // import { renderRoutes } from 'react-router-config';
 
-class App extends Component {
+const backgroundWrapper = {
+  backgroundImage: "url(http://res.cloudinary.com/dijc9b7wz/image/upload/v1534816426/bg-01_qnud83.png)",
+  height: "100%",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  position: "relative"
+}
+
+class App extends Component { 
+
   render() {
     return (
-      <HashRouter>
-        <Switch>
-          <Route exact path="/login" name="Login Page" component={Login} />
-          <Route exact path="/register" name="Register Page" component={Register} />
-          <Route exact path="/404" name="Page 404" component={Page404} />
-          <Route exact path="/500" name="Page 500" component={Page500} />
-          <Route path="/" name="Home" component={DefaultLayout} />
-        </Switch>
-      </HashRouter>
+      <div style={backgroundWrapper}>
+        <HashRouter>
+          <Switch>
+            <Route exact path="/login" name="Login Page" component={Login} />
+            <Route exact path="/register" name="Register Page" component={Register} />
+            <Route exact path="/404" name="Page 404" component={Page404} />
+            <Route exact path="/500" name="Page 500" component={Page500} />
+            <Route path="/" name="Home" component={DefaultLayout} />
+          </Switch>
+        </HashRouter>
+      </div>
     );
   }
 }

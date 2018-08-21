@@ -1,159 +1,106 @@
 export default {
   items: [
     {
-      name: 'Dashboard',
+      name: '관리자 페이지',
       url: '/dashboard',
       icon: 'icon-speedometer',
-      badge: {
-        variant: 'info',
-        text: 'NEW',
-      },
+      // badge: {
+      //   variant: 'info',
+      //   text: 'NEW',
+      // },
     },
+    // {
+    //   title: true,
+    //   name: 'Theme',
+    //   wrapper: {            // optional wrapper object
+    //     element: '',        // required valid HTML5 element tag
+    //     attributes: {}        // optional valid JS object with JS API naming ex: { className: "my-class", style: { fontFamily: "Verdana" }, id: "my-id"}
+    //   },
+    //   class: ''             // optional class names space delimited list for title item ex: "text-center"
+    // },
     {
-      title: true,
-      name: 'Theme',
-      wrapper: {            // optional wrapper object
-        element: '',        // required valid HTML5 element tag
-        attributes: {}        // optional valid JS object with JS API naming ex: { className: "my-class", style: { fontFamily: "Verdana" }, id: "my-id"}
-      },
-      class: ''             // optional class names space delimited list for title item ex: "text-center"
-    },
-    {
-      name: 'Colors',
+      name: '조직 관리',
       url: '/theme/colors',
-      icon: 'icon-drop',
+      icon: 'icon-settings',
     },
     {
-      name: 'Typography',
+      name: '실적 관리',
       url: '/theme/typography',
-      icon: 'icon-pencil',
-    },
-    {
-      title: true,
-      name: 'Components',
-      wrapper: {
-        element: '',
-        attributes: {},
-      },
-    },
-    {
-      name: 'Base',
-      url: '/base',
-      icon: 'icon-puzzle',
+      icon: 'icon-chart',
       children: [
         {
-          name: 'Breadcrumbs',
+          name: '청약 정보 실시간 등록',
           url: '/base/breadcrumbs',
           icon: 'icon-puzzle',
         },
         {
-          name: 'Cards',
+          name: '실적 정보 대량 등록',
           url: '/base/cards',
           icon: 'icon-puzzle',
         },
-        {
-          name: 'Carousels',
-          url: '/base/carousels',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Collapses',
-          url: '/base/collapses',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Dropdowns',
-          url: '/base/dropdowns',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Forms',
-          url: '/base/forms',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Jumbotrons',
-          url: '/base/jumbotrons',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'List groups',
-          url: '/base/list-groups',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Navs',
-          url: '/base/navs',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Paginations',
-          url: '/base/paginations',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Popovers',
-          url: '/base/popovers',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Progress Bar',
-          url: '/base/progress-bar',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Switches',
-          url: '/base/switches',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Tables',
-          url: '/base/tables',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Tabs',
-          url: '/base/tabs',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Tooltips',
-          url: '/base/tooltips',
-          icon: 'icon-puzzle',
-        },
-      ],
+      ]
+    },
+    // {
+    //   title: true,
+    //   name: 'Components',
+    //   wrapper: {
+    //     element: '',
+    //     attributes: {},
+    //   },
+    // },
+    {
+      name: '게시판',
+      url: '/base',
+      icon: 'icon-info'
     },
     {
-      name: 'Buttons',
+      name: '성과 분석',
       url: '/buttons',
       icon: 'icon-cursor',
       children: [
         {
-          name: 'Buttons',
+          name: '전체',
           url: '/buttons/buttons',
           icon: 'icon-cursor',
         },
         {
-          name: 'Button dropdowns',
+          name: '그룹&실',
           url: '/buttons/button-dropdowns',
           icon: 'icon-cursor',
         },
         {
-          name: 'Button groups',
+          name: '개인',
           url: '/buttons/button-groups',
-          icon: 'icon-cursor',
-        },
-        {
-          name: 'Brand Buttons',
-          url: '/buttons/brand-buttons',
           icon: 'icon-cursor',
         },
       ],
     },
     {
-      name: 'Charts',
+      name: '리그',
       url: '/charts',
       icon: 'icon-pie-chart',
+      children: [
+        {
+          name: '현황',
+          url: '/buttons/buttons',
+          icon: 'icon-cursor',
+        },
+        {
+          name: '도전하기',
+          url: '/buttons/button-dropdowns',
+          icon: 'icon-cursor',
+        },
+        {
+          name: '운영(주최)하기',
+          url: '/buttons/button-groups',
+          icon: 'icon-cursor',
+        },
+        {
+          name: '결과',
+          url: '/buttons/button-groups',
+          icon: 'icon-cursor',
+        },
+      ],
     },
     {
       name: 'Icons',
