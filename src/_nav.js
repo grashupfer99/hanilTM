@@ -103,117 +103,121 @@ export default {
       ],
     },
     {
-      name: 'Icons',
+      name: '이벤트',
       url: '/icons',
-      icon: 'icon-star',
+      icon: 'icon-calendar',
       children: [
         {
-          name: 'CoreUI Icons',
+          name: '현황',
           url: '/icons/coreui-icons',
           icon: 'icon-star',
-          badge: {
-            variant: 'info',
-            text: 'NEW',
-          },
         },
         {
-          name: 'Flags',
+          name: '운영(주최)하기',
           url: '/icons/flags',
           icon: 'icon-star',
         },
         {
-          name: 'Font Awesome',
+          name: '결과',
           url: '/icons/font-awesome',
           icon: 'icon-star',
-          badge: {
-            variant: 'secondary',
-            text: '4.7',
-          },
-        },
-        {
-          name: 'Simple Line Icons',
-          url: '/icons/simple-line-icons',
-          icon: 'icon-star',
+          // badge: {
+          //   variant: 'secondary',
+          //   text: '4.7',
+          // },
         },
       ],
     },
     {
-      name: 'Notifications',
+      name: '계정관리',
       url: '/notifications',
-      icon: 'icon-bell',
+      icon: 'icon-bullhorn',
       children: [
         {
-          name: 'Alerts',
+          name: '비밀번호 관리',
           url: '/notifications/alerts',
           icon: 'icon-bell',
         },
         {
-          name: 'Badges',
+          name: '로그아웃',
           url: '/notifications/badges',
-          icon: 'icon-bell',
-        },
-        {
-          name: 'Modals',
-          url: '/notifications/modals',
-          icon: 'icon-bell',
+          icon: 'icon-account-logout',
         },
       ],
     },
     {
-      name: 'Widgets',
+      name: '설정',
       url: '/widgets',
       icon: 'icon-calculator',
-      badge: {
-        variant: 'info',
-        text: 'NEW',
-      },
-    },
-    {
-      divider: true,
-    },
-    {
-      title: true,
-      name: 'Extras',
-    },
-    {
-      name: 'Pages',
-      url: '/pages',
-      icon: 'icon-star',
       children: [
         {
-          name: 'Login',
-          url: '/login',
-          icon: 'icon-star',
+          name: '레벨',
+          url: '/notificatinos/alerts',
+          icon: 'icon-calculator'
         },
         {
-          name: 'Register',
-          url: '/register',
-          icon: 'icon-star',
+          name: '한일리그',
+          url: '/notificatinos/alerts',
+          icon: 'icon-calculator'
         },
         {
-          name: 'Error 404',
-          url: '/404',
-          icon: 'icon-star',
+          name: '분석',
+          url: '/notificatinos/alerts',
+          icon: 'icon-calculator'
         },
         {
-          name: 'Error 500',
-          url: '/500',
-          icon: 'icon-star',
+          name: '씬스케줄',
+          url: '/notificatinos/alerts',
+          icon: 'icon-calculator'
         },
-      ],
+      ]
     },
-    {
-      name: 'Download CoreUI',
-      url: 'http://coreui.io/react/',
-      icon: 'icon-cloud-download',
-      class: 'mt-auto',
-      variant: 'success',
-    },
-    {
-      name: 'Try CoreUI PRO',
-      url: 'http://coreui.io/pro/react/',
-      icon: 'icon-layers',
-      variant: 'danger',
-    },
+    // {
+    //   divider: true,
+    // },
+    // {
+    //   title: true,
+    //   name: 'Extras',
+    // },
+    // {
+    //   name: 'Pages',
+    //   url: '/pages',
+    //   icon: 'icon-star',
+    //   children: [
+    //     {
+    //       name: 'Login',
+    //       url: '/login',
+    //       icon: 'icon-star',
+    //     },
+    //     {
+    //       name: 'Register',
+    //       url: '/register',
+    //       icon: 'icon-star',
+    //     },
+    //     {
+    //       name: 'Error 404',
+    //       url: '/404',
+    //       icon: 'icon-star',
+    //     },
+    //     {
+    //       name: 'Error 500',
+    //       url: '/500',
+    //       icon: 'icon-star',
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: 'Download CoreUI',
+    //   url: 'http://coreui.io/react/',
+    //   icon: 'icon-cloud-download',
+    //   class: 'mt-auto',
+    //   variant: 'success',
+    // },
+    // {
+    //   name: 'Try CoreUI PRO',
+    //   url: 'http://coreui.io/pro/react/',
+    //   icon: 'icon-layers',
+    //   variant: 'danger',
+    // },
   ],
 };
