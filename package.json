@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "@coreui/coreui-free-react-admin-template",
   "version": "2.0.8",
   "description": "CoreUI React Open Source Bootstrap 4 Admin Template",
@@ -56,3 +57,20 @@
     "url": "https://github.com/coreui/coreui-free-react-admin-template/issues"
   }
 }
+=======
+  "name": "hanil",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+>>>>>>> 9cae01906ee2d6fb283815970a6df396c7f6f38f
