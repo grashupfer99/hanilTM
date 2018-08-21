@@ -2,10 +2,7 @@
 
 # dependencies
 /node_modules
-<<<<<<< HEAD
 package-lock.json
-=======
->>>>>>> 9cae01906ee2d6fb283815970a6df396c7f6f38f
 
 # testing
 /coverage
@@ -15,10 +12,7 @@ package-lock.json
 
 # misc
 .DS_Store
-<<<<<<< HEAD
 .idea
-=======
->>>>>>> 9cae01906ee2d6fb283815970a6df396c7f6f38f
 .env.local
 .env.development.local
 .env.test.local

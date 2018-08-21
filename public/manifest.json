@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "short_name": "CoreUI-React",
   "name": "CoreUI-React sample",
   "icons": [
@@ -7,15 +6,6 @@
       "src": "./assets/favicon.png",
       "sizes": "100x100",
       "type": "image/png"
-=======
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
->>>>>>> 9cae01906ee2d6fb283815970a6df396c7f6f38f
     }
   ],
   "start_url": "./index.html",

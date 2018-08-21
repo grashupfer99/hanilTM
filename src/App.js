@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 // Styles
@@ -44,22 +43,6 @@ class App extends Component {
             <Route path="/" name="Home" component={DefaultLayout} />
           </Switch>
         </HashRouter>
-=======
-import logo from './logo.svg';
-import './App.css';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
->>>>>>> 9cae01906ee2d6fb283815970a6df396c7f6f38f
       </div>
     );
   }
