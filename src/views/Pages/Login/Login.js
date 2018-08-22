@@ -26,7 +26,7 @@ class Login extends Component {
     return (
       <div className="app flex-row align-items-center">
         <Container>
-          <h1 className="card-title text-center bold-font" style={{fontSize:"25px"}}>
+          <h1 className="card-title text-center font-weight-bold" style={{fontSize:"25px"}}>
             영업1실 
             관리자 
             로그인
@@ -57,7 +57,7 @@ class Login extends Component {
                       <InputGroup className="mb-4">
                         <Input className="shadow brdr" type="password" placeholder="••••••" autoComplete="current-password" />
                         <Col xs="6">
-                          <Button color="primary" className="px-4 shadow bold-font">로그인</Button>
+                          <Button color="primary" className="px-4 shadow font-weight-bold">로그인</Button>
                         </Col>
                       </InputGroup>
                     </Form>

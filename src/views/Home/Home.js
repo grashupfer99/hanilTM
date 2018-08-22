@@ -19,6 +19,7 @@ import {
   Progress,
   Row,
   Table,
+  Tooltip
 } from 'reactstrap';
 import Widget03 from '../../views/Widgets/Widget03'
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
@@ -29,6 +30,42 @@ const brandSuccess = getStyle('--success')
 const brandInfo = getStyle('--info')
 const brandWarning = getStyle('--warning')
 const brandDanger = getStyle('--danger')
+
+
+// Tooltip item
+class TooltipItem extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      tooltipOpen: false,
+    };
+  }
+
+  toggle() {
+    this.setState({
+      tooltipOpen: !this.state.tooltipOpen,
+    });
+  }
+
+  render() {
+    return (
+      <span>
+          <Button className="mr-2 warning-tooltip" color="warning" id={'Tooltip-' + this.props.id}>
+          {this.props.item.text}
+        </Button>
+        <Tooltip placement={this.props.item.placement} isOpen={this.state.tooltipOpen} target={'Tooltip-' + this.props.id} toggle={this.toggle}>
+          현재 발생한 청약 정보를 수동으로 입력합니다. (청약 자동 감지 불가시 이용) 청약 정보가 입력되면 스크린에 홈런 영상이 재생됩니다.
+        </Tooltip>
+      </span>
+    );
+  }
+}
+
+
+
+
 
 // Card Chart 1
 const cardChartData1 = {
@@ -452,16 +489,34 @@ const mainChartOpts = {
 };
 
 class Dashboard extends Component {
+
   constructor(props) {
     super(props);
 
     this.toggle = this.toggle.bind(this);
+    this.toggleToolTip = this.toggleToolTip.bind(this);
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
 
     this.state = {
       dropdownOpen: false,
       radioSelected: 2,
+      tooltipOpen: [false, false],
+      // tooltips: [
+      //   {
+      //     placement: 'left',
+      //     text: '?',
+      //   }
+      // ],
     };
+  }
+
+  toggleToolTip(i) {
+    const newArray = this.state.tooltipOpen.map((element, index) => {
+      return (index === i ? !element : false);
+    });
+    this.setState({
+      tooltipOpen: newArray,
+    });
   }
 
   toggle() {
@@ -480,6 +535,82 @@ class Dashboard extends Component {
 
     return (
       <div className="animated fadeIn">
+        <Row>
+          <Col md="6">
+            {/*  */}
+            <Row className="text-center">
+              <Col sm={12} md className="mb-sm-2 mb-0">
+                <div className="text-muted text-left font-weight-bold">전체 콜</div>
+                <Card className="p-2 opacity">
+                    <strong className="h4" style={{margin:0}}>2.257</strong>
+                </Card>
+              </Col>
+              <Col sm={12} md className="mb-sm-2 mb-0">
+                <div className="text-muted text-left font-weight-bold">유효 콜</div>
+                <Card className="p-2 opacity">
+                  <strong className="h4" style={{margin:0}}>10</strong>
+                </Card>
+              </Col>
+              <Col sm={12} md className="mb-sm-2 mb-0">
+                <div className="text-muted text-left font-weight-bold">청약</div>
+                <Card className="p-2 opacity">
+                  <strong className="h4" style={{margin:0}}>196</strong>
+                </Card>
+              </Col>
+              <Col sm={12} md className="mb-sm-2 mb-0">
+                <div className="text-muted text-left font-weight-bold">성공율</div>
+                <Card className="p-2 opacity">
+                  <strong className="h4" style={{margin:0}}>1.24%</strong>
+                </Card>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Card>
+                  <CardHeader className="clearfix">
+                    <strong className="vertical-center float-left">오늘 실적 현황</strong>
+                    <span className="float-right">
+                        <Button className="mr-2 warning-tooltip" color="warning" id="Tooltip-01">
+                          ?
+                        </Button>
+                        <Tooltip 
+                          placement="left" 
+                          isOpen={this.state.tooltipOpen[0]} 
+                          target="Tooltip-01" 
+                          toggle={ () => {this.toggleToolTip(0);}}>
+                          
+                          현재 발생한 청약 정보를 수동으로 입력합니다. 
+                          (청약 자동 감지 불가시 이용) 
+                          청약 정보가 입력되면 스크린에 
+                          홈런 영상이 재생됩니다.
+
+                        </Tooltip>
+                      <Badge className="mr-1 p-2" style={{backgroundColor:"#7030a0"}} color="primary" pill>
+                        청약 정보 실시간 등록
+                      </Badge>
+                    </span>
+                  </CardHeader>
+                  <CardBody>
+                    <ButtonGroup>
+                      <Button>1</Button>
+                      <Button>2</Button>
+                    </ButtonGroup>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
+          </Col>
+          <Col md="6">
+            <Card>
+              <CardBody>
+                <ButtonGroup>
+                  <Button>1</Button>
+                  <Button>2</Button>
+                </ButtonGroup>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
         <Row>
           <Col xs="12" sm="6" lg="3">
             <Card className="text-white bg-info">

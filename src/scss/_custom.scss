@@ -4,28 +4,42 @@
     border: none !important;
     background-color: transparent !important; }
   
-  #root .brdr {
-    border: 1px solid #b1dddd; 
-    border-radius: 4px; }  
-  
-   .bold-font {
-    font-weight: bold; }
-  
-  .greeting {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: bold;
-    font-size: 17px; }
-  
-  .speechBubble {
-    height: 155px;
-    background-image: url(http://res.cloudinary.com/dijc9b7wz/image/upload/v1534830218/bubble-03_anh78w.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    position: relative; }
-  
-  #root .nav-title {
-    font-size: 16px; }
+#root .brdr {
+  border: 1px solid #b1dddd; 
+  border-radius: 4px; }  
+
+.greeting {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 17px; }
+
+.speechBubble {
+  height: 155px;
+  background-image: url(http://res.cloudinary.com/dijc9b7wz/image/upload/v1534830218/bubble-03_anh78w.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: relative; }
+
+#root .nav-title {
+  font-size: 16px; }
+
+#root .opacity {
+  background-color: rgba(255,255,255,0.6); }
+
+#root .warning-tooltip {
+  color: #ffc107;
+  background-color: transparent;
+  border-color: 1px solid #ffc107;
+  border-radius: 50%;
+  padding: 0px 8px; }
+
+.tooltip-inner {
+  color: #000 !important;
+  background-color: #ffc107 !important; }
+
+ .tooltip.bs-tooltip-auto[x-placement^=left] .arrow::before, .tooltip.bs-tooltip-left .arrow::before {
+    border-left-color: #ffc107 !important; }
