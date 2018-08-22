@@ -9870,6 +9870,9 @@ body {
   right: auto; }
 
 /* Additional styles */
+body {
+  font-family: "Nanum Gothic", "Noto Sans Kr", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
+
 #root .no-bg {
   border: none !important;
   background-color: transparent !important; }
@@ -9905,14 +9908,37 @@ body {
   background-color: transparent;
   border-color: 1px solid #ffc107;
   border-radius: 50%;
-  padding: 0px 8px; }
+  padding: 0px 7px; }
 
 .tooltip-inner {
   color: #000 !important;
-  background-color: #ffc107 !important; }
+  background-color: #ffc107 !important;
+  word-break: keep-all; }
 
 .tooltip.bs-tooltip-auto[x-placement^=left] .arrow::before, .tooltip.bs-tooltip-left .arrow::before, .tooltip.bs-tooltip-auto[x-placement^="left"] .arrow::before {
   border-left-color: #ffc107 !important; }
+
+#root table.no-brdr td {
+  border-top: none; }
+
+#root table thead tr {
+  border-bottom: 1px solid #c8ced3; }
+
+#root table.no-brdr th {
+  border: none; }
+
+tr.align-mid > * {
+  vertical-align: middle !important;
+  text-align: center; }
+
+tr.mute-text > * {
+  color: #73818f;
+  font-weight: normal; }
+
+#root .custom-badge-01 {
+  color: #fff;
+  background-color: #a162d0;
+  padding: 6px; }
 
 html body .app.flex-row.align-items-center {
   height: 100vh; }

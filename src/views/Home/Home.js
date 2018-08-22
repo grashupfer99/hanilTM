@@ -19,7 +19,12 @@ import {
   Progress,
   Row,
   Table,
-  Tooltip
+  Tooltip,
+  Form,
+  FormGroup,
+  InputGroup,
+  InputGroupAddon,
+  Input
 } from 'reactstrap';
 import Widget03 from '../../views/Widgets/Widget03'
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
@@ -542,32 +547,32 @@ class Dashboard extends Component {
               <Col sm={12} md className="mb-sm-2 mb-0">
                 <div className="text-muted text-left font-weight-bold">전체 콜</div>
                 <Card className="p-2 opacity">
-                    <strong className="h4" style={{margin:0}}>2.257</strong>
+                    <strong className="h4 font-weight-bold" style={{margin:0}}>2.257</strong>
                 </Card>
               </Col>
               <Col sm={12} md className="mb-sm-2 mb-0">
                 <div className="text-muted text-left font-weight-bold">유효 콜</div>
                 <Card className="p-2 opacity">
-                  <strong className="h4" style={{margin:0}}>10</strong>
+                  <strong className="h4 font-weight-bold" style={{margin:0}}>10</strong>
                 </Card>
               </Col>
               <Col sm={12} md className="mb-sm-2 mb-0">
                 <div className="text-muted text-left font-weight-bold">청약</div>
                 <Card className="p-2 opacity">
-                  <strong className="h4" style={{margin:0}}>196</strong>
+                  <strong className="h4 font-weight-bold" style={{margin:0}}>196</strong>
                 </Card>
               </Col>
               <Col sm={12} md className="mb-sm-2 mb-0">
                 <div className="text-muted text-left font-weight-bold">성공율</div>
                 <Card className="p-2 opacity">
-                  <strong className="h4" style={{margin:0}}>1.24%</strong>
+                  <strong className="h4 font-weight-bold" style={{margin:0}}>1.24%</strong>
                 </Card>
               </Col>
             </Row>
             <Row>
               <Col>
-                <Card>
-                  <CardHeader className="clearfix">
+                <Card className="opacity">
+                  <CardHeader className="clearfix" style={{backgroundColor: "transparent"}}>
                     <strong className="vertical-center float-left">오늘 실적 현황</strong>
                     <span className="float-right">
                         <Button className="mr-2 warning-tooltip" color="warning" id="Tooltip-01">
@@ -591,10 +596,427 @@ class Dashboard extends Component {
                     </span>
                   </CardHeader>
                   <CardBody>
-                    <ButtonGroup>
+
+                    <Form action="" method="post" className="form-horizontal">
+                      <FormGroup row>
+                        <Col md="12" lg="6" className="ml-auto">
+                          <InputGroup>
+                              <InputGroupAddon addonType="prepend">
+                                <Button type="button" color="primary"><i className="fa fa-search"></i></Button>
+                              </InputGroupAddon>
+                              <Input type="text" id="input1-group2" name="input1-group2" placeholder="이름" />
+                          </InputGroup>
+                        </Col>
+                      </FormGroup>
+                    </Form>
+
+                    <Table className="no-brdr" responsive>
+                      <thead>
+                        <tr className="align-mid mute-text">
+                          <th>No</th>
+                          <th>사진</th>
+                          <th>사용자 ID</th>
+                          <th>이름 (Lv)</th>
+                          <th>전체 콜</th>
+                          <th>유효 콜</th>
+                          <th>청약</th>
+                          <th className="text-center">
+                            청약 정보
+                            <br /> 
+                            실시간 등록
+                          </th>
+                        </tr>
+                      </thead>
+                  <tbody>
+                  <tr className="align-mid">
+                    <td>1</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/women/19.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+                      
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>2</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/men/52.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+                     
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>3</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/men/97.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+                      <Badge color="info custom-badge-01">청약</Badge>
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>4</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/women/42.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+               
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>5</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/women/16.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+            
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>6</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/women/58.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+            
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>7</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/men/53.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+           
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>8</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/women/12.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+               
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>9</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/men/99.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+                      <Badge color="info custom-badge-01">청약</Badge>
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>10</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/men/85.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>11</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/women/19.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+             
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>12</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/men/52.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+              
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>13</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/men/97.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+              
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>14</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/women/42.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+              
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>15</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/women/16.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+                      <Badge color="info custom-badge-01">청약</Badge>
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>16</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/women/58.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+           
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>17</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/men/53.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+         
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>18</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/women/12.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+       
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>19</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/men/99.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+         
+                    </td>
+                  </tr>
+                  <tr className="align-mid">
+                    <td>20</td>
+                    <td>
+                      <img 
+                        src="https://randomuser.me/api/portraits/men/85.jpg"
+                        alt="profile image"
+                        className="rounded"
+                        style={{ width: "50px" }}
+                        style={{ height: "50px"}} />
+                    </td>
+                    <td>P00000001</td>
+                    <td>홍길동(3)</td>
+                    <td>65</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>
+          
+                    </td>
+                  </tr>
+                 
+                  </tbody>
+                </Table>
+
+
+                    {/* <ButtonGroup>
                       <Button>1</Button>
                       <Button>2</Button>
-                    </ButtonGroup>
+                    </ButtonGroup> */}
                   </CardBody>
                 </Card>
               </Col>
