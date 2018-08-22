@@ -1,0 +1,31 @@
+/* Additional styles */
+
+#root .no-bg {
+    border: none !important;
+    background-color: transparent !important; }
+  
+  #root .brdr {
+    border: 1px solid #b1dddd; 
+    border-radius: 4px; }  
+  
+   .bold-font {
+    font-weight: bold; }
+  
+  .greeting {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 17px; }
+  
+  .speechBubble {
+    height: 155px;
+    background-image: url(http://res.cloudinary.com/dijc9b7wz/image/upload/v1534830218/bubble-03_anh78w.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: relative; }
+  
+  #root .nav-title {
+    font-size: 16px; }
