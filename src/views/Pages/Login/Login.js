@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 
-const speechBubble = {
-  // width: "275px",
-  height: "155px",
-  backgroundImage: "url(http://res.cloudinary.com/dijc9b7wz/image/upload/v1534830218/bubble-03_anh78w.png)",
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "contain",
-  backgroundPosition: "center",
-  position: "relative"
-}
+// const speechBubble = {
+//   // width: "275px",
+//   height: "155px",
+//   backgroundImage: "url(http://res.cloudinary.com/dijc9b7wz/image/upload/v1534830218/bubble-03_anh78w.png)",
+//   backgroundRepeat: "no-repeat",
+//   backgroundSize: "contain",
+//   backgroundPosition: "center",
+//   position: "relative"
+// }
 
-const greeting = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  fontWeight:"bold",
-  fontSize: "17px"
-}
+// const greeting = {
+//   position: "absolute",
+//   top: "50%",
+//   left: "50%",
+//   transform: "translate(-50%, -50%)",
+//   fontWeight:"bold",
+//   fontSize: "17px"
+// }
 
 class Login extends Component {
  
@@ -26,7 +26,7 @@ class Login extends Component {
     return (
       <div className="app flex-row align-items-center">
         <Container>
-          <h1 className="card-title text-center" style={{fontWeight:"bold", fontSize:"25px"}}>
+          <h1 className="card-title text-center bold-font" style={{fontSize:"25px"}}>
             영업1실 
             관리자 
             로그인
@@ -45,8 +45,8 @@ class Login extends Component {
                 </Card>
                 <Card className="p-4 no-bg">
                   <CardBody>
-                    <div className="text-center mb-4" style={speechBubble}>
-                      <div style={greeting}>
+                    <div className="text-center mb-4 speechBubble" >
+                      <div className="greeting" >
                           <span className="d-block pb-2">
                               <span>홍길동</span> 실장님~
                           </span>
@@ -55,7 +55,7 @@ class Login extends Component {
                     </div> 
                     <Form>
                       <InputGroup className="mb-4">
-                        <Input className="shadow brdr" type="password" placeholder="Password" autoComplete="current-password" />
+                        <Input className="shadow brdr" type="password" placeholder="••••••" autoComplete="current-password" />
                         <Col xs="6">
                           <Button color="primary" className="px-4 shadow bold-font">로그인</Button>
                         </Col>

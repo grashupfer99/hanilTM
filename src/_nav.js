@@ -1,14 +1,28 @@
 export default {
   items: [
     {
+      title: true,
       name: '관리자 페이지',
-      url: '/dashboard',
-      icon: 'icon-speedometer',
-      // badge: {
-      //   variant: 'info',
-      //   text: 'NEW',
-      // },
+      wrapper: {
+        element: '',
+        attributes: {},
+      },
+      class: 'nav-title'
     },
+    {
+      name: 'HOME',
+      url: '/dashboard',
+      icon: 'fa fa-home',
+    },
+    // {
+    //   name: '관리자 페이지',
+    //   url: '/dashboard',
+    //   icon: 'fa fa-dashboard',
+    //   badge: {
+    //     variant: 'info',
+    //     text: 'NEW',
+    //   },
+    // },
     // {
     //   title: true,
     //   name: 'Theme',
@@ -21,22 +35,22 @@ export default {
     {
       name: '조직 관리',
       url: '/theme/colors',
-      icon: 'icon-settings',
+      icon: 'fa fa-sitemap',
     },
     {
       name: '실적 관리',
       url: '/theme/typography',
-      icon: 'icon-chart',
+      icon: 'fa fa-sliders',
       children: [
         {
           name: '청약 정보 실시간 등록',
           url: '/base/breadcrumbs',
-          icon: 'icon-puzzle',
+          icon: 'fa fa-hand-pointer-o',
         },
         {
           name: '실적 정보 대량 등록',
           url: '/base/cards',
-          icon: 'icon-puzzle',
+          icon: 'fa fa-info-circle',
         },
       ]
     },
@@ -51,76 +65,76 @@ export default {
     {
       name: '게시판',
       url: '/base',
-      icon: 'icon-info'
+      icon: 'fa fa-sticky-note'
     },
     {
       name: '성과 분석',
       url: '/buttons',
-      icon: 'icon-cursor',
+      icon: 'fa fa-signal',
       children: [
         {
           name: '전체',
           url: '/buttons/buttons',
-          icon: 'icon-cursor',
+          icon: 'fa fa-list-ul',
         },
         {
           name: '그룹&실',
           url: '/buttons/button-dropdowns',
-          icon: 'icon-cursor',
+          icon: 'fa fa-group',
         },
         {
           name: '개인',
           url: '/buttons/button-groups',
-          icon: 'icon-cursor',
+          icon: 'fa fa-user',
         },
       ],
     },
     {
       name: '리그',
       url: '/charts',
-      icon: 'icon-pie-chart',
+      icon: 'fa fa-star',
       children: [
         {
           name: '현황',
           url: '/buttons/buttons',
-          icon: 'icon-cursor',
+          icon: 'fa fa-area-chart',
         },
         {
           name: '도전하기',
           url: '/buttons/button-dropdowns',
-          icon: 'icon-cursor',
+          icon: 'icon-puzzle',
         },
         {
           name: '운영(주최)하기',
           url: '/buttons/button-groups',
-          icon: 'icon-cursor',
+          icon: 'fa fa-hdd-o',
         },
         {
           name: '결과',
           url: '/buttons/button-groups',
-          icon: 'icon-cursor',
+          icon: 'fa fa-bar-chart',
         },
       ],
     },
     {
       name: '이벤트',
       url: '/icons',
-      icon: 'icon-calendar',
+      icon: 'fa fa-calendar',
       children: [
         {
           name: '현황',
           url: '/icons/coreui-icons',
-          icon: 'icon-star',
+          icon: 'fa fa-area-chart',
         },
         {
           name: '운영(주최)하기',
           url: '/icons/flags',
-          icon: 'icon-star',
+          icon: 'fa fa-hdd-o',
         },
         {
           name: '결과',
           url: '/icons/font-awesome',
-          icon: 'icon-star',
+          icon: 'fa fa-bar-chart',
           // badge: {
           //   variant: 'secondary',
           //   text: '4.7',
@@ -131,50 +145,50 @@ export default {
     {
       name: '계정관리',
       url: '/notifications',
-      icon: 'icon-bullhorn',
+      icon: 'fa fa-vcard-o',
       children: [
         {
           name: '비밀번호 관리',
           url: '/notifications/alerts',
-          icon: 'icon-bell',
+          icon: 'fa fa-lock',
         },
         {
           name: '로그아웃',
           url: '/notifications/badges',
-          icon: 'icon-account-logout',
+          icon: 'fa fa-sign-out',
         },
       ],
     },
     {
       name: '설정',
       url: '/widgets',
-      icon: 'icon-calculator',
+      icon: 'icon-settings',
       children: [
         {
           name: '레벨',
           url: '/notificatinos/alerts',
-          icon: 'icon-calculator'
+          icon: 'fa fa-line-chart'
         },
         {
           name: '한일리그',
           url: '/notificatinos/alerts',
-          icon: 'icon-calculator'
+          icon: 'fa fa-trophy'
         },
         {
           name: '분석',
           url: '/notificatinos/alerts',
-          icon: 'icon-calculator'
+          icon: 'fa fa-pie-chart'
         },
         {
           name: '씬스케줄',
           url: '/notificatinos/alerts',
-          icon: 'icon-calculator'
+          icon: 'fa fa-list-alt'
         },
       ]
     },
-    // {
-    //   divider: true,
-    // },
+    {
+      divider: true,
+    },
     // {
     //   title: true,
     //   name: 'Extras',
@@ -206,13 +220,18 @@ export default {
     //     },
     //   ],
     // },
-    // {
-    //   name: 'Download CoreUI',
-    //   url: 'http://coreui.io/react/',
-    //   icon: 'icon-cloud-download',
-    //   class: 'mt-auto',
-    //   variant: 'success',
-    // },
+    {
+      title: true,
+      name: 'HOME',
+      class: 'mt-auto',
+    },
+    {
+      name: '실장 1',
+      url: 'http://coreui.io/react/',
+      icon: 'icon-user',
+      // class: 'mt-auto',
+      variant: 'success',
+    },
     // {
     //   name: 'Try CoreUI PRO',
     //   url: 'http://coreui.io/pro/react/',
