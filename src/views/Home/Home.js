@@ -26,12 +26,15 @@ import {
   InputGroupAddon,
   Input
 } from 'reactstrap';
+
+import { ResponsiveBar } from 'nivo';
+
 // import Widget03 from '../../views/Widgets/Widget03'
-// import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
+import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 // import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
 // Recharts
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as TooltipChart, Legend } from 'recharts';
-
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as TooltipChart, Legend, LineChart as LineChart2, Line as Line2 } from 'recharts';
+import { Chart, Axis, Series, Bar as Bar2, Tooltip as ToolTip2, Cursor, Line } from "react-charts";
 
 // const brandPrimary = getStyle('--primary')
 // const brandSuccess = getStyle('--success')
@@ -39,30 +42,92 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as TooltipChart, Le
 // const brandWarning = getStyle('--warning')
 // const brandDanger = getStyle('--danger')
 
+
+// React Charts
+
+const LineChart = () => {
+  const data= [
+    {
+      label: "Series 1",
+      data: [['', 2900], [1,2500]]
+    },
+    // {
+    //   label: "Series 2",
+    //   data: [[0, 3]]
+    // }
+  ];
+  const colors = {
+    bg: ['#5b9bd5','#ed7d31']
+  }
+  return (
+<Chart data={data}>
+  <Axis primary type="ordinal" />
+  <Axis type="linear" min={0} max={0} stacked />
+  <Series 
+    getStyles={series => ({
+      color: colors.bg[1]
+    })}
+    type={Bar2} />
+  <Cursor primary />
+  <Cursor />
+  <ToolTip2 />
+</Chart>
+  );
+}
+
+
+
+
 // Recharts 
 
-const data = [
-  {name: '< 전체 콜 >', '타실 평균': 2500, 우리실: 1000},
-  // {name: '< 타실 평균 >', '타실 평균': 3000, 우리실: 1398, amt: 2210},
-];
 
-const BarChart01 = () => {
+const NewBarChart = () => {
+  const data = [
+    {name: '< 전체 콜 >', 우리실: 2900, '타실 평균': 2650, },
+    // {name: '< 타실 평균 >', '타실 평균': 3000, 우리실: 1398, amt: 2210},
+  ];
   return (
     <BarChart 
-      width={250} 
-      height={350} 
+      width={160} 
+      height={240} 
       data={data}
-      margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-      <CartesianGrid strokeDasharray="3 3"/>
-      <XAxis dataKey="name"/>
-      <YAxis/>
-      <TooltipChart/>
-      <Legend />
-      <Bar dataKey="우리실" fill="blue" />
-      <Bar dataKey="타실 평균" fill="#f97d67" />
+      margin={{top: 40, right: 5, left: 5, bottom: 40}}>
+      <CartesianGrid stroke="#f5f5f5"/>
+      <XAxis dataKey="name" />
+      <YAxis />
+      <TooltipChart wrapperStyle={{color: "#666", fontSize: "12px"}}/>
+      {/* <Legend /> */}
+      <Bar type="monotone" dataKey="우리실" fill="#20a8d8"  barSize={15}/>
+      <Bar type="monotone" dataKey="타실 평균" fill="#ffc107" barSize={15} />
     </BarChart>
   );
 };
+
+
+/////////////////////////
+
+const TinyLineChart = () => {
+  const data = [
+    {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
+    {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
+    {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
+    {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
+    {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
+    {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
+    {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
+  ];
+  return (
+    <LineChart2 width={300} height={100} data={data}>
+      <Line2 type='monotone' dataKey='pv' stroke='#8884d8' strokeWidth={2} />
+    </LineChart2>
+  );
+}
+
+
+
+
+
+
 
 
 // Not being used
@@ -152,32 +217,32 @@ class Dashboard extends Component {
             <Row className="text-center">
               <Col sm={12} md className="mb-sm-2 mb-0">
                 <div className="text-muted text-left font-weight-bold">전체 콜</div>
-                <Card className="p-2 opacity">
+                <Card className="p-2 opacity earthian-shadow">
                     <strong className="h4 font-weight-bold" style={{margin:0}}>2.257</strong>
                 </Card>
               </Col>
               <Col sm={12} md className="mb-sm-2 mb-0">
                 <div className="text-muted text-left font-weight-bold">유효 콜</div>
-                <Card className="p-2 opacity">
+                <Card className="p-2 opacity earthian-shadow">
                   <strong className="h4 font-weight-bold" style={{margin:0}}>10</strong>
                 </Card>
               </Col>
               <Col sm={12} md className="mb-sm-2 mb-0">
                 <div className="text-muted text-left font-weight-bold">청약</div>
-                <Card className="p-2 opacity">
+                <Card className="p-2 opacity earthian-shadow">
                   <strong className="h4 font-weight-bold" style={{margin:0}}>196</strong>
                 </Card>
               </Col>
               <Col sm={12} md className="mb-sm-2 mb-0">
                 <div className="text-muted text-left font-weight-bold">성공율</div>
-                <Card className="p-2 opacity">
+                <Card className="p-2 opacity earthian-shadow">
                   <strong className="h4 font-weight-bold" style={{margin:0}}>1.24%</strong>
                 </Card>
               </Col>
             </Row>
             <Row>
               <Col>
-                <Card className="opacity">
+                <Card className="opacity earthian-shadow">
                   <CardHeader className="clearfix" style={{backgroundColor: "transparent"}}>
                     <strong className="vertical-center float-left">오늘 실적 현황</strong>
                     <span className="float-right">
@@ -216,7 +281,7 @@ class Dashboard extends Component {
                       </FormGroup>
                     </Form>
 
-                    <Table className="no-brdr" responsive>
+                    <Table className="no-brdr hoverBadges" responsive>
                       <thead>
                         <tr className="align-mid mute-text">
                           <th>No</th>
@@ -249,7 +314,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>2</td>
@@ -266,7 +333,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>3</td>
@@ -302,7 +371,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>5</td>
@@ -319,7 +390,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>6</td>
@@ -336,7 +409,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>7</td>
@@ -353,7 +428,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>8</td>
@@ -370,7 +447,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>9</td>
@@ -406,7 +485,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>11</td>
@@ -423,7 +504,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>12</td>
@@ -440,7 +523,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>13</td>
@@ -457,7 +542,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>14</td>
@@ -474,7 +561,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>15</td>
@@ -510,7 +599,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>17</td>
@@ -527,7 +618,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>18</td>
@@ -544,7 +637,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>19</td>
@@ -561,7 +656,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                         <tr className="align-mid">
                           <td>20</td>
@@ -578,7 +675,9 @@ class Dashboard extends Component {
                           <td>65</td>
                           <td>3</td>
                           <td>2</td>
-                          <td></td>
+                          <td>
+                            <Badge color="info custom-badge-01">청약</Badge>
+                          </td>
                         </tr>
                       </tbody>
                     </Table>
@@ -587,17 +686,364 @@ class Dashboard extends Component {
               </Col>
             </Row>
           </Col>
+
           <Col md="6">
-            <Card>
-              <BarChart01 />
-              <CardBody>
-                {/* <ButtonGroup>
-                  <Button>1</Button>
-                  <Button>2</Button>
-                </ButtonGroup> */}
-              </CardBody>
+            <Card className="earthian-shadow opacity">
+              <CardHeader className="clearfix" style={{backgroundColor: "transparent"}}>
+                <strong className="vertical-center float-left">어제 실적 VS Another</strong>
+                <span className="float-right">
+                  <div className="pr-3 chart-inner01">
+                    <span className="chart-legend mr-1 mb-1 align-middle" style={{backgroundColor:"#20a8d8"}}></span>
+                    우리실
+                  </div>
+                  <div className="chart-inner01">
+                    <span className="chart-legend mr-1 align-middle" style={{backgroundColor:"#ffc107"}}></span>
+                    타실 평균
+                    </div>
+                </span>
+              </CardHeader>
+              <Row className="text-center smallFont">
+                <Col sm={12} md className="mb-sm-2 mb-0">
+                  <NewBarChart />
+                </Col>
+                <Col sm={12} md className="mb-sm-2 mb-0">
+                  <NewBarChart />
+                </Col>
+                <Col sm={12} md className="mb-sm-2 mb-0">
+                  <NewBarChart />
+                </Col>
+              </Row>
             </Card>
+
+            <Card className="earthian-shadow opacity">
+              <CardHeader className="clearfix" style={{backgroundColor: "transparent"}}>
+                <strong className="vertical-center float-left">최근 5일 컨디션</strong>
+              </CardHeader>
+              <Row className="text-center smallFont">
+                <Col sm={12} md className="mb-sm-2 mb-0">
+                  <TinyLineChart />
+                </Col>
+              </Row>
+            </Card>
+
           </Col>
+
+            
+          {/* <Col md="6">
+            <Card className="earthian-shadow opacity"> */}
+            {/* <Col md="6" lg="6" style={{height: "350px"}}> */}
+              {/* Nivo chart */}
+
+            {/* <Row className="mx-4">  */}
+              {/* <Col sm={12} md className="mb-sm-2 mb-0" style={{height: "350px"}}>
+                <LineChart />
+              </Col> */}
+
+                        
+              {/* <Col sm={12} md className="mb-sm-2 mb-0"  style={{height: "250px"}}>
+              <LineChart />
+              </Col>
+              <Col sm={12} md className="mb-sm-2 mb-0 mx-4"  style={{height: "250px"}}>
+              <LineChart />
+              </Col>
+              <Col sm={12} md className="mb-sm-2 mb-0"  style={{height: "250px"}}>
+              <LineChart />
+              </Col>
+           
+            </Row> */}
+
+            {/* <Row className="text-center smallFont">
+              <Col sm={12} md className="mb-sm-2 mb-0" style={{height: "350px"}}> */}
+               {/* <ResponsiveBar
+                data={
+                  [
+                    {
+                      "country": "< 전체 콜 >",
+                      "우리실": 2800,
+                      "우리실Color": "hsl(336, 70%, 50%)",
+                      "타실 평균": 2500,
+                      "타실 평균Color": "hsl(133, 70%, 50%)",
+                    }
+                    // {
+                    //   "country": "AE",
+                    //   "pizza": 2500,
+                    //   "pizzadogColor": "hsl(16, 70%, 50%)",
+                    // },
+                  ]
+                }
+                keys={[
+                  "우리실",
+                  "타실 평균",
+              ]}
+              indexBy="country"
+              margin={{
+                  "top": 50,
+                  "right": 50,
+                  "bottom": 50,
+                  "left": 50
+              }}
+              
+              groupMode="grouped"
+              padding={0.5}
+              borderColor="inherit:darker(1.6)"
+              axisBottom={{
+                  "orient": "bottom",
+                  "tickSize": 0,
+                  "tickPadding": 10,
+                  "tickRotation": 0,
+                  "legend": "",
+                  "legendPosition": "center",
+                  "legendOffset": 36
+              }}
+              enableLabel={false}
+              labelSkipWidth={12}
+              labelSkipHeight={12}
+              labelTextColor="inherit:darker(1.6)"
+              animate={true}
+              motionStiffness={90}
+              motionDamping={15}
+              // isInteractive={false}
+              theme={{
+                  "tooltip": {
+                      "container": {
+                          "fontSize": "13px"
+                      }
+                  },
+                  "labels": {
+                      "textColor": "#555"
+                  }
+              }}
+          /> */}
+{/* <ResponsiveBar
+        data={
+          [
+            {
+              "country": "AD",
+              "burger": 18,
+              "burgerColor": "hsl(138, 78%, 84%)",
+            },
+            {
+              "country": "AE",
+              "fries": 47,
+              "friesColor": "hsl(203, 81%, 87%)",
+            },
+          ]
+        }
+        keys={[
+            "burger",
+            "fries",
+        ]}
+        indexBy="country"
+        margin={{
+            "top": 50,
+            "right": 130,
+            "bottom": 50,
+            "left": 60
+        }}
+        padding={0.3}
+        colors="nivo"
+        // colorBy="id"
+        defs={[
+            {
+                "id": "dots",
+                "type": "patternDots",
+                "background": "inherit",
+                "color": "#38bcb2",
+                "size": 4,
+                "padding": 1,
+                "stagger": true
+            },
+            {
+                "id": "lines",
+                "type": "patternLines",
+                "background": "inherit",
+                "color": "#eed312",
+                "rotation": -45,
+                "lineWidth": 6,
+                "spacing": 10
+            }
+        ]}
+      
+        borderColor="inherit:darker(1.6)"
+        axisBottom={{
+            "orient": "bottom",
+            "tickSize": 5,
+            "tickPadding": 5,
+            "tickRotation": 0,
+            "legend": "country",
+            "legendPosition": "center",
+            "legendOffset": 36
+        }}
+        axisLeft={{
+            "orient": "left",
+            "tickSize": 5,
+            "tickPadding": 5,
+            "tickRotation": 0,
+            "legend": "food",
+            "legendPosition": "center",
+            "legendOffset": -40
+        }}
+        labelSkipWidth={12}
+        labelSkipHeight={12}
+        labelTextColor="inherit:darker(1.6)"
+        animate={true}
+        motionStiffness={90}
+        motionDamping={15}
+        legends={[
+            {
+                "dataFrom": "keys",
+                "anchor": "bottom-right",
+                "direction": "column",
+                "translateX": 120,
+                "itemWidth": 100,
+                "itemHeight": 20,
+                "itemsSpacing": 2,
+                "symbolSize": 20
+            }
+        ]}
+        theme={{
+            "tooltip": {
+                "container": {
+                    "fontSize": "13px"
+                }
+            },
+            "labels": {
+                "textColor": "#555"
+            }
+        }}
+    />
+
+              </Col>
+            </Row>
+             */}
+ 
+              {/* <ResponsiveBar
+                data={
+                  [
+                    {
+                      "country": "< 전체 콜 >",
+                      "우리실": 2800,
+                      "우리실Color": "hsl(58, 70%, 50%)",
+                      "타실 평균": 2500,
+                      "타실 평균Color": "hsl(16, 70%, 50%)",
+                    }
+                    // {
+                    //   "country": "AE",
+                    //   "pizza": 2500,
+                    //   "pizzadogColor": "hsl(16, 70%, 50%)",
+                    // },
+                  ]
+                }
+                keys={[
+                  "우리실",
+                  "타실 평균",
+              ]}
+              indexBy="country"
+              margin={{
+                  "top": 50,
+                  "right": 50,
+                  "bottom": 50,
+                  "left": 50
+              }}
+              groupMode="grouped"
+              padding={0.5}
+              borderColor="inherit:darker(1.6)"
+              axisBottom={{
+                  "orient": "bottom",
+                  "tickSize": 0,
+                  "tickPadding": 10,
+                  "tickRotation": 0,
+                  "legend": "",
+                  "legendPosition": "center",
+                  "legendOffset": 36
+              }}
+              enableLabel={false}
+              labelSkipWidth={12}
+              labelSkipHeight={12}
+              labelTextColor="inherit:darker(1.6)"
+              animate={true}
+              motionStiffness={90}
+              motionDamping={15}
+              // isInteractive={false}
+              theme={{
+                  "tooltip": {
+                      "container": {
+                          "fontSize": "13px"
+                      }
+                  },
+                  "labels": {
+                      "textColor": "#555"
+                  }
+              }}
+          />
+          </Col>
+          <Col md="6" lg="6" style={{height: "350px"}}>
+              <ResponsiveBar
+                data={
+                  [
+                    {
+                      "country": "< 전체 콜 >",
+                      "우리실": 2800,
+                      "우리실Color": "hsl(58, 70%, 50%)",
+                      "타실 평균": 2500,
+                      "타실 평균Color": "hsl(16, 70%, 50%)",
+                    }
+                    // {
+                    //   "country": "AE",
+                    //   "pizza": 2500,
+                    //   "pizzadogColor": "hsl(16, 70%, 50%)",
+                    // },
+                  ]
+                }
+                keys={[
+                  "우리실",
+                  "타실 평균",
+              ]}
+              indexBy="country"
+              margin={{
+                  "top": 50,
+                  "right": 50,
+                  "bottom": 50,
+                  "left": 50
+              }}
+              groupMode="grouped"
+              padding={0.5}
+              borderColor="inherit:darker(1.6)"
+              axisBottom={{
+                  "orient": "bottom",
+                  "tickSize": 0,
+                  "tickPadding": 10,
+                  "tickRotation": 0,
+                  "legend": "",
+                  "legendPosition": "center",
+                  "legendOffset": 36
+              }}
+              enableLabel={false}
+              labelSkipWidth={12}
+              labelSkipHeight={12}
+              labelTextColor="inherit:darker(1.6)"
+              animate={true}
+              motionStiffness={90}
+              motionDamping={15}
+              // isInteractive={false}
+              theme={{
+                  "tooltip": {
+                      "container": {
+                          "fontSize": "13px"
+                      }
+                  },
+                  "labels": {
+                      "textColor": "#555"
+                  }
+              }}
+          /> */}
+
+
+
+            {/* </Col> */}
+
+
+          {/* </Col> */}
         </Row>
       </div>
     );

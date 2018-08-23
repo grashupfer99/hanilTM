@@ -22,11 +22,16 @@ import { Login, Page404, Page500, Register } from './views/Pages';
 
 const backgroundWrapper = {
   backgroundImage: "url(http://res.cloudinary.com/dijc9b7wz/image/upload/v1534816426/bg-01_qnud83.png)",
-  height: "100%",
+  // height: "100%",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
-  position: "relative"
+  position: "fixed",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  overflow: "auto"
 }
 
 class App extends Component { 

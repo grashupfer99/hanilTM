@@ -55,9 +55,9 @@ class Login extends Component {
                     </div> 
                     <Form>
                       <InputGroup className="mb-4">
-                        <Input className="shadow brdr" type="password" placeholder="••••••" autoComplete="current-password" />
+                        <Input className="earthian-shadow brdr" type="password" placeholder="••••••" autoComplete="current-password" />
                         <Col xs="6">
-                          <Button color="primary" className="px-4 shadow font-weight-bold">로그인</Button>
+                          <Button color="primary" className="px-4 earthian-shadow font-weight-bold">로그인</Button>
                         </Col>
                       </InputGroup>
                     </Form>
