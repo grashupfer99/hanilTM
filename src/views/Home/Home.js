@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Bar, Line } from 'react-chartjs-2';
+import { Bar as MainBar, Line as MainLine, HorizontalBar } from 'react-chartjs-2';
 import {
   Badge,
   Button,
@@ -12,11 +12,11 @@ import {
   CardHeader,
   CardTitle,
   Col,
-  // Dropdown,
-  // DropdownItem,
-  // DropdownMenu,
-  // DropdownToggle,
-  // Progress,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  Progress,
   Row,
   Table,
   Tooltip,
@@ -29,18 +29,357 @@ import {
 
 import { ResponsiveBar } from 'nivo';
 
-// import Widget03 from '../../views/Widgets/Widget03'
+import Widget03 from '../../views/Widgets/Widget03'
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
-// import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
+import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
 // Recharts
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as TooltipChart, Legend, LineChart as LineChart2, Line as Line2 } from 'recharts';
 import { Chart, Axis, Series, Bar as Bar2, Tooltip as ToolTip2, Cursor, Line } from "react-charts";
 
-// const brandPrimary = getStyle('--primary')
-// const brandSuccess = getStyle('--success')
-// const brandInfo = getStyle('--info')
-// const brandWarning = getStyle('--warning')
-// const brandDanger = getStyle('--danger')
+// chart js data labels
+import Datalabels from 'chartjs-plugin-datalabels';
+
+const brandPrimary = getStyle('--primary')
+const brandSuccess = getStyle('--success')
+const brandInfo = getStyle('--info')
+const brandWarning = getStyle('--warning')
+const brandDanger = getStyle('--danger')
+
+// Data Labels
+
+
+
+
+// React Charts 2
+
+
+// Main Chart
+const horBarData = {
+  labels: false,
+  datasets: [
+    {
+      label: '우리실',
+      backgroundColor: brandPrimary,
+      borderColor: 'rgba(255,99,132,1)',
+      borderWidth: 0,
+      // hoverBackgroundColor: 'transparent',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [2900],
+      datalabels: {
+        display: false
+      }
+    },
+    {
+      label: '타실 평균',
+      backgroundColor: brandInfo,
+      borderColor: 'yellowgreen',
+      borderWidth: 0,
+      // hoverBackgroundColor: 'transparent',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [2600],
+      datalabels: {
+        display: false
+      }
+    },
+  ],
+};
+
+const horBarOptions = {
+  tooltips: {
+    enabled: false,
+    custom: CustomTooltips
+  },
+  maintainAspectRatio: false,
+  legend: {
+    display: true,
+  },
+  title: {
+    display: true,
+    text: '< 전체 콜 >',
+    position: 'bottom'
+  },
+  scales: {
+    xAxes: [
+      {
+        display: true,
+        gridLines: {
+          color: '#ecebeb',
+          zeroLineColor: 'transparent',
+        },
+        ticks: {
+          fontSize: 12,
+          fontColor: 'black',
+          display: true,
+          beginAtZero:true
+          // min: 0,
+          // max: 100,
+          // stepSize: 20,
+        },
+
+      }],
+    yAxes: [
+      {
+        display: true,
+        ticks: {
+          display: true,
+          beginAtZero:true,
+          // stepSize: 500 
+        },
+      }],
+  },
+    layout: {
+      padding: {
+        top: 5,
+        right: 15,
+        bottom: 5,
+        left: 15
+      }
+    },
+  elements: {
+    line: {
+      tension: 0.00001,
+      borderWidth: 2,
+    },
+    point: {
+      radius: 0,
+      hitRadius: 10,
+      hoverRadius: 3,
+      hoverBorderWidth: 0,
+    },
+  },
+}
+
+
+
+
+
+
+
+
+
+
+//////
+const data1 = [45,36,42,32,41,36,44,32,45];
+const data2 = [40,40,40,40,40,40,40,40,40];
+
+
+const mainChart = {
+  labels: [1,2,3,4,5,6,7,8,9],
+  datasets: [
+    {
+      label: '성공률',
+      // backgroundColor: hexToRgba(brandInfo, 10),
+      backgroundColor: 'transparent',
+      // borderColor: brandInfo,
+      borderColor: brandInfo,
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      borderWidth: 2,
+      data: data1,
+      datalabels: {
+        align: 'bottom',
+        anchor: 'center'
+      },
+    },
+    {
+      label: '평균 성곡률',
+      radius: 0, // radius is 0 only for this dataset
+      backgroundColor: 'transparent',
+      borderColor: brandDanger,
+      pointHoverBackgroundColor: '#fff',
+      borderWidth: 1,
+      borderDash: [8, 5],
+      data: data2,
+      datalabels: {
+        display: false
+        // align: 'right',
+        // anchor: 'center'
+      },
+    },
+  ],
+};
+
+const mainChartOpts = {
+  tooltips: {
+    enabled: false,
+    custom: CustomTooltips,
+    intersect: true,
+    mode: 'index',
+    position: 'nearest',
+    callbacks: {
+      labelColor: function(tooltipItem, chart) {
+        return { backgroundColor: chart.data.datasets[tooltipItem.datasetIndex].borderColor }
+      }
+    }
+  },
+  maintainAspectRatio: false,
+  legend: {
+    display: true,
+  },
+  scales: {
+    xAxes: [
+      {
+        gridLines: {
+          color: 'transparent',
+          zeroLineColor: 'transparent',
+        },
+        ticks: {
+          fontSize: 2,
+          fontColor: 'transparent',
+        },
+
+      }],
+    yAxes: [
+      {
+        display: false,
+        ticks: {
+          display: false,
+          min: Math.min.apply(Math, mainChart.datasets[0].data) - 5,
+          max: Math.max.apply(Math, mainChart.datasets[0].data) + 5,
+        },
+      }],
+  },
+    // data labels
+    plugins: {
+      datalabels: {
+        // backgroundColor: function(context){
+        //   return context.dataset.backgroundColor;
+        // },
+        // borderRadius: 4,
+        // color: 'red',
+        // font: {
+        //   weight: 'bold'
+        // },
+        formatter: function(value){
+          return `${Math.round(value)}%`;
+        },
+        offset: 8
+      }
+    },
+    layout: {
+      padding: {
+        top: 5,
+        right: 15,
+        bottom: 5,
+        left: 15
+      }
+    },
+  elements: {
+    line: {
+      tension: 0.00001,
+      borderWidth: 2,
+    },
+    point: {
+      radius: 2,
+      hitRadius: 10,
+      hoverRadius: 3,
+      hoverBorderWidth: 0,
+    },
+  },
+};
+
+/////////////
+
+const newBar = {
+  labels: ['전체콜', '유효콜', '청약'],
+  datasets: [
+    {
+      label: '최근 30일 평균',
+      backgroundColor: brandPrimary,
+      borderColor: 'rgba(255,99,132,1)',
+      borderWidth: 0,
+      // hoverBackgroundColor: 'transparent',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [65, 59, 80],
+      datalabels: {
+        display: false
+      }
+    },
+    {
+      label: '오늘',
+      backgroundColor: brandInfo,
+      borderColor: 'yellowgreen',
+      borderWidth: 0,
+      // hoverBackgroundColor: 'transparent',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [25, 65, 50],
+      datalabels: {
+        align: 'right',
+        anchor: 'end'
+      }
+    },
+  ],
+};
+
+const newOptions = {
+  tooltips: {
+    enabled: false,
+    custom: CustomTooltips
+  },
+  maintainAspectRatio: false,
+  legend: {
+    display: true,
+  },
+  scales: {
+    xAxes: [
+      {
+        gridLines: {
+          color: 'transparent',
+          zeroLineColor: 'transparent',
+        },
+        ticks: {
+          fontSize: 12,
+          fontColor: 'black',
+          min: 0,
+          max: 100,
+          stepSize: 20,
+          callback: function(tick){
+            return tick.toString() + '%'
+          }
+        },
+
+      }],
+    yAxes: [
+      {
+        display: true,
+        ticks: {
+          display: true,
+        },
+      }],
+  },
+    // data labels
+    plugins: {
+      datalabels: {
+        formatter: function(value){
+          return `${Math.round(value)}%`;
+        },
+        offset: 8
+      }
+    },
+    layout: {
+      padding: {
+        top: 5,
+        right: 15,
+        bottom: 5,
+        left: 15
+      }
+    },
+  elements: {
+    line: {
+      tension: 0.00001,
+      borderWidth: 2,
+    },
+    point: {
+      radius: 2,
+      hitRadius: 10,
+      hoverRadius: 3,
+      hoverBorderWidth: 0,
+    },
+  },
+}
+
+
+
 
 
 // React Charts
@@ -74,6 +413,14 @@ const LineChart = () => {
 </Chart>
   );
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -244,7 +591,7 @@ class Dashboard extends Component {
               <Col>
                 <Card className="opacity earthian-shadow">
                   <CardHeader className="clearfix" style={{backgroundColor: "transparent"}}>
-                    <strong className="vertical-center float-left">오늘 실적 현황</strong>
+                    <strong className="align-middle float-left">오늘 실적 현황</strong>
                     <span className="float-right">
                         <Button className="mr-2 warning-tooltip" color="warning" id="Tooltip-01">
                           ?
@@ -690,8 +1037,8 @@ class Dashboard extends Component {
           <Col md="6">
             <Card className="earthian-shadow opacity">
               <CardHeader className="clearfix" style={{backgroundColor: "transparent"}}>
-                <strong className="vertical-center float-left">어제 실적 VS Another</strong>
-                <span className="float-right">
+                <strong className="align-middle float-left">어제 실적 VS Another</strong>
+                {/* <span className="float-right">
                   <div className="pr-3 chart-inner01">
                     <span className="chart-legend mr-1 mb-1 align-middle" style={{backgroundColor:"#20a8d8"}}></span>
                     우리실
@@ -700,31 +1047,126 @@ class Dashboard extends Component {
                     <span className="chart-legend mr-1 align-middle" style={{backgroundColor:"#ffc107"}}></span>
                     타실 평균
                     </div>
-                </span>
+                </span> */}
               </CardHeader>
+              <CardBody>
+                <Row className="text-center smallFont m-3">
+                  <Col>  
+                    <div className="chart-wrapper" style={{height: 140 + 'px'}}>
+                      <HorizontalBar data={horBarData} options={horBarOptions} height={140}/>
+                    </div>
+                  </Col>
+                </Row>
+                <Row className="text-center smallFont m-3">
+                  <Col>  
+                    <div className="chart-wrapper" style={{height: 140 + 'px'}}>
+                      <HorizontalBar data={horBarData} options={horBarOptions} height={140}/>
+                    </div>
+                  </Col>
+                </Row>
+                <Row className="text-center smallFont m-3">
+                  <Col>  
+                    <div className="chart-wrapper" style={{height: 140 + 'px'}}>
+                      <HorizontalBar data={horBarData} options={horBarOptions} height={140}/>
+                    </div>
+                  </Col>
+                </Row>
+              </CardBody>
               <Row className="text-center smallFont">
-                <Col sm={12} md className="mb-sm-2 mb-0">
-                  <NewBarChart />
-                </Col>
-                <Col sm={12} md className="mb-sm-2 mb-0">
-                  <NewBarChart />
-                </Col>
-                <Col sm={12} md className="mb-sm-2 mb-0">
-                  <NewBarChart />
+                <Col>
+                {/* <Col className="mb-sm-2 mb-0"> */}
+                  {/* <NewBarChart /> */}
+                  {/* <div className="chart-wrapper" style={{height:100+'px'}}>
+                    <HorizontalBar data={horBarData} options={horBarOptions} height={90}/>
+                  </div> */}
+                {/* </Col> */}
+                {/* <Col className="mb-sm-2 mb-0"> */}
+                  {/* <NewBarChart /> */}
+                  {/* <div className="chart-wrapper" style={{height:190}}>
+                    <Bar data={horBarData} options={horBarOptions} height={180}/>
+                  </div> */}
+                {/* </Col>
+                <Col className="mb-sm-2 mb-0"> */}
+                  {/* <NewBarChart /> */}
+                  {/* <div className="chart-wrapper" style={{height:190}}>
+                    <Bar data={horBarData} options={horBarOptions} height={180}/>
+                  </div> */}
+                {/* </Col> */}
                 </Col>
               </Row>
+              {/* <Row>
+                <Col>
+                  <div className="chart-wrapper" style={{height:140}}>
+                    <HorizontalBar data={horBarData} options={horBarOptions} height={130}/>
+                  </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <div className="chart-wrapper" style={{height:140}}>
+                    <HorizontalBar data={horBarData} options={horBarOptions} height={130}/>
+                  </div>
+                </Col>
+              </Row> */}
             </Card>
 
-            <Card className="earthian-shadow opacity">
-              <CardHeader className="clearfix" style={{backgroundColor: "transparent"}}>
-                <strong className="vertical-center float-left">최근 5일 컨디션</strong>
-              </CardHeader>
-              <Row className="text-center smallFont">
-                <Col sm={12} md className="mb-sm-2 mb-0">
-                  <TinyLineChart />
-                </Col>
-              </Row>
-            </Card>
+            <Row>
+              <Col>
+                <Card className="earthian-shadow opacity">
+                  <CardHeader className="clearfix" style={{backgroundColor: "transparent"}}>
+                    <strong className="align-middle float-left">최근 5일 컨디션</strong>
+                  </CardHeader>
+                  <CardBody>
+                    <div className="chart-wrapper m-4" style={{ height: 160 + 'px'}}>
+                      <MainLine data={mainChart} options={mainChartOpts} height={150} />
+                    </div>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col>
+                <Card className="earthian-shadow opacity">
+                  <CardHeader className="clearfix" style={{backgroundColor: "transparent"}}>
+                    <strong className="align-middle float-left">오늘 실적 달성률</strong>
+                    <span className="float-right">
+                      <Button className="mr-2 warning-tooltip" color="warning" id="Tooltip2">
+                        ?
+                      </Button>
+                      <Tooltip 
+                        placement="left" 
+                        isOpen={this.state.tooltipOpen[1]} 
+                        target="Tooltip2" 
+                        toggle={ () => {this.toggleToolTip(1);}}>    
+                          최근 30일동안의 평균을
+                          기준으로 오늘 실적의 달성
+                          률을 표시합니다.
+                      </Tooltip>
+                    </span>
+                  </CardHeader>
+                  <CardBody>
+                    <div className="chart-wrapper" style={{ height: 190 + 'px'}}>
+                      <HorizontalBar data={newBar} options={newOptions} height={190} />
+                    </div>
+                  </CardBody>
+                  <CardFooter className="opacity">
+                    <Row className="text-center smallFont">
+                      <Col sm={12} md className="mb-sm-2 mb-0">
+                        성공률
+                      </Col>
+                      <Col sm={12} md className="mb-sm-2 mb-0 font-weight-bold" style={{color:brandInfo, fontSize:"20px"}}>
+                        1.54%
+                      </Col>
+                      <Col sm={12} md className="mb-sm-2 mb-0 font-weight-bold" style={{color:brandPrimary, fontSize:"20px"}}>
+                        2.01%
+                      </Col>
+                    </Row>
+                  </CardFooter>
+                </Card>
+              </Col>
+            </Row>
+
 
           </Col>
 

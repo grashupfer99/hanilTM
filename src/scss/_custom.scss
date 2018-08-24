@@ -32,7 +32,7 @@ body {
   font-size: 16px; }
 
 #root .opacity {
-  background-color: rgba(255,255,255,0.6); }
+  background-color: rgba(255,255,255,0.7); }
 
 #root .warning-tooltip {
   color: #ffc107;
@@ -100,3 +100,7 @@ table.hoverBadges tbody tr:hover .badge {
     display: inline-block;
     font-size: 12px; }
 
+  /* Text shadow */
+  .xbootstrap {
+    letter-spacing: .1em;
+    text-shadow: 2px 2px 1px #363636; }
