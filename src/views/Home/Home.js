@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Bar as MainBar, Line as MainLine, HorizontalBar } from 'react-chartjs-2';
+import { Bar, Line, HorizontalBar } from 'react-chartjs-2';
 import {
   Badge,
   Button,
@@ -27,17 +27,17 @@ import {
   Input
 } from 'reactstrap';
 
-import { ResponsiveBar } from 'nivo';
+// import { ResponsiveBar } from 'nivo';
 
 import Widget03 from '../../views/Widgets/Widget03'
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
 // Recharts
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as TooltipChart, Legend, LineChart as LineChart2, Line as Line2 } from 'recharts';
-import { Chart, Axis, Series, Bar as Bar2, Tooltip as ToolTip2, Cursor, Line } from "react-charts";
+// import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as TooltipChart, Legend, LineChart as LineChart2, Line as Line2 } from 'recharts';
+// import { Chart, Axis, Series, Bar as Bar2, Tooltip as ToolTip2, Cursor, Line } from "react-charts";
 
 // chart js data labels
-import Datalabels from 'chartjs-plugin-datalabels';
+// import Datalabels from 'chartjs-plugin-datalabels';
 
 const brandPrimary = getStyle('--primary')
 const brandSuccess = getStyle('--success')
@@ -59,11 +59,10 @@ const horBarData = {
   datasets: [
     {
       label: '우리실',
-      backgroundColor: brandPrimary,
-      borderColor: 'rgba(255,99,132,1)',
+      backgroundColor: "#46cdcf",
       borderWidth: 0,
-      // hoverBackgroundColor: 'transparent',
-      hoverBorderColor: 'rgba(255,99,132,1)',
+      hoverBackgroundColor: "#46cdcf",
+      // hoverBorderColor: 'rgba(255,99,132,1)',
       data: [2900],
       datalabels: {
         display: false
@@ -71,11 +70,10 @@ const horBarData = {
     },
     {
       label: '타실 평균',
-      backgroundColor: brandInfo,
-      borderColor: 'yellowgreen',
+      backgroundColor: "#48466d",
       borderWidth: 0,
-      // hoverBackgroundColor: 'transparent',
-      hoverBorderColor: 'rgba(255,99,132,1)',
+      hoverBackgroundColor: "#48466d",
+      // hoverBorderColor: 'rgba(255,99,132,1)',
       data: [2600],
       datalabels: {
         display: false
@@ -171,10 +169,10 @@ const mainChart = {
       // backgroundColor: hexToRgba(brandInfo, 10),
       backgroundColor: 'transparent',
       // borderColor: brandInfo,
-      borderColor: brandInfo,
+      borderColor: "#07689f",
       pointHoverBackgroundColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      borderWidth: 2,
+      borderWidth: 3,
       data: data1,
       datalabels: {
         align: 'bottom',
@@ -185,9 +183,9 @@ const mainChart = {
       label: '평균 성곡률',
       radius: 0, // radius is 0 only for this dataset
       backgroundColor: 'transparent',
-      borderColor: brandDanger,
+      borderColor: "#ff7e67",
       pointHoverBackgroundColor: '#fff',
-      borderWidth: 1,
+      borderWidth: 2,
       borderDash: [8, 5],
       data: data2,
       datalabels: {
@@ -285,11 +283,11 @@ const newBar = {
   datasets: [
     {
       label: '최근 30일 평균',
-      backgroundColor: brandPrimary,
-      borderColor: 'rgba(255,99,132,1)',
+      backgroundColor: "#3d84a8",
+      // borderColor: 'rgba(255,99,132,1)',
       borderWidth: 0,
-      // hoverBackgroundColor: 'transparent',
-      hoverBorderColor: 'rgba(255,99,132,1)',
+      hoverBackgroundColor: '#3d84a8',
+      // hoverBorderColor: 'rgba(255,99,132,1)',
       data: [65, 59, 80],
       datalabels: {
         display: false
@@ -297,11 +295,11 @@ const newBar = {
     },
     {
       label: '오늘',
-      backgroundColor: brandInfo,
-      borderColor: 'yellowgreen',
+      backgroundColor: "#46cdcf",
+      // borderColor: 'yellowgreen',
       borderWidth: 0,
-      // hoverBackgroundColor: 'transparent',
-      hoverBorderColor: 'rgba(255,99,132,1)',
+      hoverBackgroundColor: '#46cdcf',
+      // hoverBorderColor: 'rgba(255,99,132,1)',
       data: [25, 65, 50],
       datalabels: {
         align: 'right',
@@ -384,35 +382,35 @@ const newOptions = {
 
 // React Charts
 
-const LineChart = () => {
-  const data= [
-    {
-      label: "Series 1",
-      data: [['', 2900], [1,2500]]
-    },
-    // {
-    //   label: "Series 2",
-    //   data: [[0, 3]]
-    // }
-  ];
-  const colors = {
-    bg: ['#5b9bd5','#ed7d31']
-  }
-  return (
-<Chart data={data}>
-  <Axis primary type="ordinal" />
-  <Axis type="linear" min={0} max={0} stacked />
-  <Series 
-    getStyles={series => ({
-      color: colors.bg[1]
-    })}
-    type={Bar2} />
-  <Cursor primary />
-  <Cursor />
-  <ToolTip2 />
-</Chart>
-  );
-}
+// const LineChart = () => {
+//   const data= [
+//     {
+//       label: "Series 1",
+//       data: [['', 2900], [1,2500]]
+//     },
+//     // {
+//     //   label: "Series 2",
+//     //   data: [[0, 3]]
+//     // }
+//   ];
+//   const colors = {
+//     bg: ['#5b9bd5','#ed7d31']
+//   }
+//   return (
+// <Chart data={data}>
+//   <Axis primary type="ordinal" />
+//   <Axis type="linear" min={0} max={0} stacked />
+//   <Series 
+//     getStyles={series => ({
+//       color: colors.bg[1]
+//     })}
+//     type={Bar2} />
+//   <Cursor primary />
+//   <Cursor />
+//   <ToolTip2 />
+// </Chart>
+//   );
+// }
 
 
 
@@ -428,47 +426,47 @@ const LineChart = () => {
 // Recharts 
 
 
-const NewBarChart = () => {
-  const data = [
-    {name: '< 전체 콜 >', 우리실: 2900, '타실 평균': 2650, },
-    // {name: '< 타실 평균 >', '타실 평균': 3000, 우리실: 1398, amt: 2210},
-  ];
-  return (
-    <BarChart 
-      width={160} 
-      height={240} 
-      data={data}
-      margin={{top: 40, right: 5, left: 5, bottom: 40}}>
-      <CartesianGrid stroke="#f5f5f5"/>
-      <XAxis dataKey="name" />
-      <YAxis />
-      <TooltipChart wrapperStyle={{color: "#666", fontSize: "12px"}}/>
-      {/* <Legend /> */}
-      <Bar type="monotone" dataKey="우리실" fill="#20a8d8"  barSize={15}/>
-      <Bar type="monotone" dataKey="타실 평균" fill="#ffc107" barSize={15} />
-    </BarChart>
-  );
-};
+// const NewBarChart = () => {
+//   const data = [
+//     {name: '< 전체 콜 >', 우리실: 2900, '타실 평균': 2650, },
+//     // {name: '< 타실 평균 >', '타실 평균': 3000, 우리실: 1398, amt: 2210},
+//   ];
+//   return (
+//     <BarChart 
+//       width={160} 
+//       height={240} 
+//       data={data}
+//       margin={{top: 40, right: 5, left: 5, bottom: 40}}>
+//       <CartesianGrid stroke="#f5f5f5"/>
+//       <XAxis dataKey="name" />
+//       <YAxis />
+//       <TooltipChart wrapperStyle={{color: "#666", fontSize: "12px"}}/>
+//       {/* <Legend /> */}
+//       <Bar type="monotone" dataKey="우리실" fill="#20a8d8"  barSize={15}/>
+//       <Bar type="monotone" dataKey="타실 평균" fill="#ffc107" barSize={15} />
+//     </BarChart>
+//   );
+// };
 
 
 /////////////////////////
 
-const TinyLineChart = () => {
-  const data = [
-    {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
-    {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
-    {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
-    {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
-    {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
-    {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
-    {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
-  ];
-  return (
-    <LineChart2 width={300} height={100} data={data}>
-      <Line2 type='monotone' dataKey='pv' stroke='#8884d8' strokeWidth={2} />
-    </LineChart2>
-  );
-}
+// const TinyLineChart = () => {
+//   const data = [
+//     {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
+//     {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
+//     {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
+//     {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
+//     {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
+//     {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
+//     {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
+//   ];
+//   return (
+//     <LineChart2 width={300} height={100} data={data}>
+//       <Line2 type='monotone' dataKey='pv' stroke='#8884d8' strokeWidth={2} />
+//     </LineChart2>
+//   );
+// }
 
 
 
@@ -1118,7 +1116,7 @@ class Dashboard extends Component {
                   </CardHeader>
                   <CardBody>
                     <div className="chart-wrapper m-4" style={{ height: 160 + 'px'}}>
-                      <MainLine data={mainChart} options={mainChartOpts} height={150} />
+                      <Line data={mainChart} options={mainChartOpts} height={150} />
                     </div>
                   </CardBody>
                 </Card>
@@ -1155,10 +1153,10 @@ class Dashboard extends Component {
                       <Col sm={12} md className="mb-sm-2 mb-0">
                         성공률
                       </Col>
-                      <Col sm={12} md className="mb-sm-2 mb-0 font-weight-bold" style={{color:brandInfo, fontSize:"20px"}}>
+                      <Col sm={12} md className="mb-sm-2 mb-0 font-weight-bold" style={{color:"#3d84a8", fontSize:"20px"}}>
                         1.54%
                       </Col>
-                      <Col sm={12} md className="mb-sm-2 mb-0 font-weight-bold" style={{color:brandPrimary, fontSize:"20px"}}>
+                      <Col sm={12} md className="mb-sm-2 mb-0 font-weight-bold" style={{color:"#46cdcf", fontSize:"20px"}}>
                         2.01%
                       </Col>
                     </Row>
